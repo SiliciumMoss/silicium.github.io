@@ -54,3 +54,36 @@ if (item.url.includes("medal.tv")) {
     `;
     embedGallery.appendChild(div);
 });
+
+
+const apiKey = "FDC4A82921A0EAE9006C12DA98F8B31C";
+    const steamId = "76561199057095505";
+
+    async function fetchSteamData() {
+      const summaryURL = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${apiKey}&steamids=${steamId}`;
+      const recentURL = `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key=${apiKey}&steamid=${steamId}`;
+
+      const summaryRes = await fetch(summaryURL);
+      const summaryData = await summaryRes.json();
+
+      const recentRes = await fetch(recentURL);
+      const recentData = await recentRes.json();
+
+      const profile = summaryData.response.players[0];
+      document.getElementById("profile").innerHTML = `
+        <h2>${profile.personaname}</h2>
+        <img class="avatar" src="${profile.avatarfull}" alt="Avatar">
+        <p>Status: ${profile.personastate === 1 ? 'Online' : 'Offline'}</p>
+      `;
+
+      const gamesHTML = recentData.response.games?.map(game => `
+        <div class="game">
+          <strong>${game.name}</strong><br>
+          Playtime (last 2 weeks): ${(game.playtime_2weeks / 60).toFixed(1)} hrs
+        </div>
+      `).join('') || '<p>No recent games found.</p>';
+
+      document.getElementById("games").innerHTML = `<h3>Recently Played Games</h3>${gamesHTML}`;
+    }
+
+    fetchSteamData();
