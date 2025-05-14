@@ -25,7 +25,7 @@ imageList.forEach(path => {
 const item = document.createElement('div');
     item.className = 'gallery-item-more';
     item.innerHTML = `
-      <img src="items/more_full.png" alt="more">
+      <a href="https://steamcommunity.com/id/matingseason_/screenshots/"><img src="items/more_full.png" alt="more"></a>
       <div class="caption"></div>
     `;
     gallery.appendChild(item);
@@ -66,7 +66,7 @@ embedList.forEach(item => {
 const div = document.createElement('div');
     div.className = 'gallery-item-more';
     div.innerHTML = `
-      <div class="embed-container"><img src="items/more_full.png" alt="more" style="width=640; height=360; border: none;"></div>
+      <div class="embed-container"><a href="https://medal.tv/u/SiliciumMoss"><img src="items/more_full.png" alt="more" style="width=640; height=360; border: none;"></a></div>
       <div class="caption"></div>
     `;
     embedGallery.appendChild(div);
