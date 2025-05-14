@@ -1,6 +1,4 @@
 //Gallery
-
-
 const imageList = [
     "gallery/Me_and_my_best_friend_Paul_again.jpg",
     //"gallery/Rebuilding_my_farm!.jpg",
