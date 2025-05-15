@@ -2,7 +2,7 @@
 const imageList = [
     "gallery/Me_and_my_best_friend_Paul_again.jpg",
     //"gallery/Rebuilding_my_farm!.jpg",
-    "gallery/We're_going_on_a_trip.jpg"
+    "gallery/We_are_going_on_a_trip.jpg"
   ];
 
 const gallery = document.getElementById('gallery');
